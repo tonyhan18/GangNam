@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/25 21:12:04 by chahan           ###   ########.fr       */
+/*   Updated: 2021/06/25 21:41:36 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void    *ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-    unsigned char mem_dst;
-    unsigned char mem_src;
+    unsigned char *mem_dst;
+    unsigned char *mem_src;
     size_t i;
     char    search;
 
