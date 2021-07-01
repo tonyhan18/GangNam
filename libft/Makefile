@@ -1,22 +1,18 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra
 
 TARGET = main
-SRC = $(wildcard *.c)
-OBJ = $(SRC.c=.o)
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
 
-all: $(TARGET) clean
+all: $(TARGET)
+	rm -rf $(OBJECTS)
 
-$(TARGET): $(OBJ)
+$(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^
+	$(CC) $(CFLAGS) -c $<
 
-clean:
-	rm -f $(OBJ)
-
-fcelan: clean
-	rm -f $(TARGET)
-
-re : fcelan all
+clean :
+	rm -rf $(OBJECTS)
