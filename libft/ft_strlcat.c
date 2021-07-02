@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:05:03 by chahan           ###   ########.fr       */
+/*   Created: 2021/06/30 12:33:58 by chahan            #+#    #+#             */
+/*   Updated: 2021/06/30 16:09:16 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
-	unsigned char	*mem_dst;
-	unsigned char	*mem_src;
-	size_t			i;
-	char			search;
+	size_t i;
 
-	mem_dst = dst;
-	mem_src = (unsigned char *)src;
 	i = 0;
-	search = c;
-	while (i < n)
+	while (*dest)
 	{
-		mem_dst[i] = mem_src[i];
-		if (mem_dst[i] == search)
-			return (mem_dst + i + 1);
+		i++;
+		dest++;
+	}
+	while (*src && i < dstsize - 1)
+	{
+		*(dest++) = *(src++);
 		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
+	while (*src)
+	{
+		i++;
+	}
+	return (i);
 }

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:05:03 by chahan           ###   ########.fr       */
+/*   Updated: 2021/06/30 16:40:01 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*mem_dst;
-	unsigned char	*mem_src;
-	size_t			i;
-	char			search;
+	unsigned char	*new_s;
+	unsigned char	find;
+	size_t				i;
 
-	mem_dst = dst;
-	mem_src = (unsigned char *)src;
+	new_s = (unsigned char *)s;
+	find = c;
 	i = 0;
-	search = c;
 	while (i < n)
 	{
-		mem_dst[i] = mem_src[i];
-		if (mem_dst[i] == search)
-			return (mem_dst + i + 1);
+		if (new_s[i] == c)
+		{
+			return (new_s + i);
+		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

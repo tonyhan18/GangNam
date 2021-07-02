@@ -45,5 +45,9 @@ int     main(void)
         printf("%c ", a[i]);
     }
     printf("\n-------\n");
+
+    printf("%c\n",strrchr("abc","a");
+    printf("%c\n",ft_strrchr("abc","a");
+    printf("\n-------\n");
     
 }

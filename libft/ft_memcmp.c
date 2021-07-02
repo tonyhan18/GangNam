@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:05:03 by chahan           ###   ########.fr       */
+/*   Created: 2021/06/30 11:52:05 by chahan            #+#    #+#             */
+/*   Updated: 2021/06/30 16:08:20 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*mem_dst;
-	unsigned char	*mem_src;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 	size_t			i;
-	char			search;
 
-	mem_dst = dst;
-	mem_src = (unsigned char *)src;
+	if ((s1 == 0 && s2 == 0) || n == 0)
+		return (0);
+	else if (ptr1 == 0 || ptr2 == 0)
+		return (ptr1 == 0 ? -1 : 1);
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
 	i = 0;
-	search = c;
 	while (i < n)
 	{
-		mem_dst[i] = mem_src[i];
-		if (mem_dst[i] == search)
-			return (mem_dst + i + 1);
+		if (ptr1[i] != ptr2[i])
+			break ;
 		i++;
 	}
-	return (NULL);
+	return (ptr1[i] - ptr2[i]);
 }
