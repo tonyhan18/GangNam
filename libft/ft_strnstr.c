@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 17:13:33 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 10:31:20 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/01 16:14:36 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/01 16:14:41 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int i;
+	size_t b_size;
+	size_t l_size;
 
-	i = 0;
-	while(*s)
+	if(*little)
+		return ((char *)big);
+	b_size = ft_strlen(big);
+	l_size = ft_strlen(big);
+	if(b_size < l_size || len < l_size)
+		return (NULL);
+	while (*big)
 	{
-		i++;
+		if (ft_memcmp(big,little, len) == 0)
+			return ((char *)big);
+		big++;
 	}
-	return (i);
+	return (NULL);
 }

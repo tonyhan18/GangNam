@@ -5,31 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/30 11:52:05 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:08:20 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/01 16:14:36 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/02 10:31:05 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *b1, const void *b2, size_t n)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
+	unsigned char *s1;
+	unsigned char *s2;
+	size_t i;
 
-	if ((s1 == 0 && s2 == 0) || n == 0)
-		return (0);
-	else if (ptr1 == 0 || ptr2 == 0)
-		return (ptr1 == 0 ? -1 : 1);
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
+	s1 = (unsigned char *)b1;
+	s2 = (unsigned char *)b2;
+	if((b1 == 0 && b2 == 0) || n == 0)
+		return (0);
+	else if(s1 == 0 || s2 == 0)
+		return (s1 == 0 ? -1 : 1);
+	while(i < n)
 	{
-		if (ptr1[i] != ptr2[i])
-			break ;
+		if(s1[i] != s2[i])
+			break;
 		i++;
 	}
-	return (ptr1[i] - ptr2[i]);
+	return (s1[i] - s2[i]);
 }

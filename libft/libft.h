@@ -5,44 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/25 17:45:11 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:39:39 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/01 16:15:37 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/02 10:31:37 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __LIBFT_H__
-# define __LIBFT_H__
+#ifndef LIBFT_H
+# define LIBFT_H
 
-# include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <unistd.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5000
+# endif
 
-void                *ft_memset(void *dest, int c, size_t n);
-void			    ft_bzero(void *s, size_t n);
-void			    *ft_memcpy(void *dst, const void *src, size_t n);
-void			    *ft_memccpy(void *dst, const void *src, int c, size_t n);
-void			    *ft_memmove(void *dst, const void *src, size_t n);
-void			    *ft_memchr(const void *s, int c, size_t n);
-int				    ft_memcmp(const void *s1, const void *s2, size_t n);
+# ifndef OPEN_MAX
+#  define OPEN_MAX 32
+# endif
+
+typedef struct		s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+void				*ft_memset(void *dest, int c, size_t n);
+void				ft_bzero(void *b, size_t n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
+void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
+void				*ft_memmove(void *dest, const void *src, size_t n);
+void				*ft_memchr(const void *b, int c, size_t n);
+int					ft_memcmp(const void *b1, const void *b2, size_t n);
 int					ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dest, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dest, const char *src, size_t dstsize);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
-// char				*ft_strnstr(const char *big,
-// 	const char *little, size_t len);
-// int					ft_strcmp(const char *s1, const char *s2);
-// int					ft_strncmp(const char *s1, const char *s2, size_t n);
-// int					ft_atoi(const char *str);
-// int					ft_isalpha(int c);
-// int					ft_isdigit(int c);
-// int					ft_isalnum(int c);
-// int					ft_isascii(int c);
-// int					ft_isprint(int c);
-// int					ft_toupper(int c);
-// int					ft_tolower(int c);
-// void				*ft_calloc(size_t nmemb, size_t size);
+char				*ft_strnstr(const char *big,
+	const char *little, size_t len);
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_atoi(const char *str);
+int					ft_isalpha(int c);
+int					ft_isdigit(int c);
+int					ft_isalnum(int c);
+int					ft_isascii(int c);
+int					ft_isprint(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+void				*ft_calloc(size_t nmemb, size_t size);
 // char				*ft_strdup(const char *str);
 
 // char				*ft_substr(char const *s, unsigned int start, size_t len);
