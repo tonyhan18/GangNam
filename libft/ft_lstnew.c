@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 23:29:23 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 19:06:41 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/02 17:06:13 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/02 18:59:25 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+t_list		*ft_lstnew(void *content)
 {
-	char	*new_mem;
-	int		str_len;
+	t_list *node;
 
-	str_len = ft_strlen(str);
-	if (!(new_mem = (char *)malloc(str_len + 1)))
+	if (!(node = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
-	ft_strlcpy(new_mem, str, str_len + 1);
-	return (new_mem);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

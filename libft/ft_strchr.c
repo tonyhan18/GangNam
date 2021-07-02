@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 12:38:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 14:06:05 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 19:02:26 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char				*ft_strchr(const char *s, int c)
 
 	find = c;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] == find)
 			return ((char*)&s[i]);

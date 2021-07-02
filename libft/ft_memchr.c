@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:40:01 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 19:00:16 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*new_s;
 	unsigned char	find;
-	size_t				i;
+	size_t			i;
 
 	new_s = (unsigned char *)s;
 	find = c;

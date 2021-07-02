@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:18:03 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 14:23:25 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 19:04:10 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	if (!s1 && !s2)
 		return (NULL);
-	else if(!s1 || !s2)
+	else if (!s1 || !s2)
 		return (s1 == 0 ? ft_strdup(s2) : ft_strdup(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if(!(new_mem = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1))))
+	if (!(new_mem = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1))))
 		return (NULL);
 	ft_strlcpy(new_mem, s1, s1_len + 1);
 	ft_strlcat(new_mem, s2, s1_len + s2_len + 1);

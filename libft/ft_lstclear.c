@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 23:29:23 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 19:06:41 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/02 17:27:46 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/02 17:39:06 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*new_mem;
-	int		str_len;
+	t_list *cur_node;
+	t_list *del_node;
 
-	str_len = ft_strlen(str);
-	if (!(new_mem = (char *)malloc(str_len + 1)))
-		return (NULL);
-	ft_strlcpy(new_mem, str, str_len + 1);
-	return (new_mem);
+	if (!(*lst))
+		return ;
+	cur_node = *lst;
+	while (cur_node)
+	{
+		del(cur_node->content);
+		del_node = cur_node;
+		cur_node = cur_node->next;
+		free(del_node);
+	}
+	*lst = (t_list*)0;
+	return ;
 }

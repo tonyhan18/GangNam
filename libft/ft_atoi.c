@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:48:40 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 14:07:58 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 19:08:54 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int		ft_isspace(char c)
 {
-	if(c == ' ' || c == '\t' || c == '\r' ||
+	if (c == ' ' || c == '\t' || c == '\r' ||
 				c == '\n' || c == '\v' || c == '\f')
 		return (1);
 	else
 		return (0);
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	int		num;
 	int		sign;
