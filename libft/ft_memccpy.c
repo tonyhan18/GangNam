@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 21:04:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:05:03 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 19:39:03 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char	*mem_dst;
-	unsigned char	*mem_src;
 	size_t			i;
-	char			search;
 
-	mem_dst = dst;
-	mem_src = (unsigned char *)src;
+	if (n == 0)
+		return (NULL);
 	i = 0;
-	search = c;
 	while (i < n)
 	{
-		mem_dst[i] = mem_src[i];
-		if (mem_dst[i] == search)
-			return (mem_dst + i + 1);
+		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
+		if (*((unsigned char *)dst + i) == (unsigned char)c)
+			return (void *)((unsigned char *)dst + i + 1);
 		i++;
 	}
 	return (NULL);

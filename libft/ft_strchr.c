@@ -6,22 +6,24 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 12:38:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 19:02:26 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 20:12:21 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char				*ft_strchr(const char *s, int c)
 {
-	char	find;
 	int		i;
+	int		len;
 
-	find = c;
+	len = ft_strlen(s);
 	i = 0;
-	while (s[i])
+	while (i < len + 1)
 	{
-		if (s[i] == find)
-			return ((char*)&s[i]);
+		if (*(s + i) == (char)c)
+			return ((char *)s + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

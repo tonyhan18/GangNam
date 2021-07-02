@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 15:11:37 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 19:00:00 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 21:50:16 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,38 @@ static int		ft_len(int n)
 	return (len);
 }
 
+static void		ft_recursive_insert(char *buf, size_t *buf_idx, long long n)
+{
+	if (n == 0)
+		return ;
+	ft_recursive_insert(buf, buf_idx, n / 10);
+	buf[(*buf_idx)++] = '0' + (n % 10);
+	return ;
+}
+
 char			*ft_itoa(int n)
 {
-	char	*str;
-	int		sign;
-	int		len;
+	char		*str;
+	int			sign;
+	size_t		n_len;
+	size_t		buf_idx;
+	long long	value;
 
 	if (n == 0)
 		return (ft_strdup("0"));
 	sign = (n < 0) ? -1 : 1;
-	len = ft_len(n);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	n_len = ft_len(n);
+	str = (char*)malloc(sizeof(char) * (n_len + 1));
+	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	len--;
-	n = n * sign;
-	while (len >= 0)
-	{
-		str[len] = '0' + (n % 10);
-		n = n / 10;
-		len--;
-	}
+	buf_idx = 0;
+	value = n;
 	if (sign == -1)
-		str[0] = '-';
+	{
+		str[buf_idx++] = '-';
+		value *= -1;
+	}
+	ft_recursive_insert(str, &buf_idx, value);
+	str[buf_idx] = '\0';
 	return (str);
 }

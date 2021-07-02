@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 16:43:15 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 19:02:14 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 22:01:57 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	str = ft_itoa(n);
 	ft_putstr_fd(str, fd);
+	free(str);
 	return ;
 }
