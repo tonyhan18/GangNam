@@ -6,14 +6,13 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 16:15:37 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 10:31:37 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 14:33:08 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -56,12 +55,12 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				*ft_calloc(size_t nmemb, size_t size);
-// char				*ft_strdup(const char *str);
+char				*ft_strdup(const char *str);
 
-// char				*ft_substr(char const *s, unsigned int start, size_t len);
-// char				*ft_strjoin(char *s1, char *s2);
-// char				*ft_strtrim(char const *s1, char const *set);
-// char				**ft_split(char const *s, char c);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strtrim(char const *s1, char const *set);
+char				**ft_split(char const *s, char c);
 // char				*ft_itoa(int n);
 // char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 // void				ft_putchar_fd(char c, int fd);

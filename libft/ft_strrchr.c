@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 16:21:44 by chahan            #+#    #+#             */
-/*   Updated: 2021/06/30 16:26:04 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 14:06:37 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (i >= 0)
 	{
 		if(s[i] == c)
-			return &(s[i]);
+			return ((char *)&s[i]);
 		i--;
 	}
 	return (NULL);

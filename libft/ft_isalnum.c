@@ -6,7 +6,7 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 20:59:18 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/01 20:59:19 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/02 14:03:20 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int		ft_isalnum(int c)
 {
-	return (ft_isalnum(c) || ft_isdigit(c));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
