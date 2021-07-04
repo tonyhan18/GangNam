@@ -6,13 +6,13 @@
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 14:33:15 by chahan            #+#    #+#             */
-/*   Updated: 2021/07/02 21:51:48 by chahan           ###   ########.fr       */
+/*   Updated: 2021/07/04 13:34:30 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_get_splict_cnt(char const *s, char c)
+static size_t	ft_get_split_cnt(char const *s, char c)
 {
 	size_t	split_str;
 	size_t	i;
@@ -76,7 +76,7 @@ char			**ft_split(char const *s, char c)
 
 	if (!s)
 		return ((char**)(0));
-	split_cnt = ft_get_splict_cnt(s, c);
+	split_cnt = ft_get_split_cnt(s, c);
 	if (!(str = (char**)malloc(sizeof(char*) * (split_cnt + 1))))
 		return ((char**)(0));
 	row_idx = 0;
