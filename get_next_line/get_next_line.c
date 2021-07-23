@@ -38,7 +38,7 @@ int			ft_split_lines(char **in_buffer, char **line, int idx)
 	{
 		free(*in_buffer);
 		*in_buffer = 0;
-		return (-1);
+		return (1);
 	}
 	tmp = ft_strdup(*in_buffer + idx + 1);
 	free(*in_buffer);
