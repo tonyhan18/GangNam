@@ -62,7 +62,7 @@ int			ft_return_all(char **in_buffer, char **line, int size)
 	}
 	else
 	{
-		line = ft_strdup("");
+		*line = ft_strdup("");
 		return (0);
 	}
 }
@@ -74,7 +74,7 @@ int			get_next_line(int fd, char **line)
 	int				size;
 	int				idx;
 
-	if ((fd < 0) || line == 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || line == 0 || BUFFER_SIZE <= 0)
 		return (-1);
 	while ((size = read(fd, buf, BUFFER_SIZE)) > 0)
 	{

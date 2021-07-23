@@ -13,9 +13,9 @@
 
 #include "get_next_line.h"
 
-int		ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	while (*(s++))
@@ -74,7 +74,7 @@ char	*ft_strdup(const char *str)
 	int		str_len;
 
 	str_len = ft_strlen(str);
-	new_mem = (char *)malloc(str_len + 1)
+	new_mem = (char *)malloc(str_len + 1);
 	if (!new_mem)
 		return (NULL);
 	ft_strlcpy(new_mem, str, str_len + 1);
