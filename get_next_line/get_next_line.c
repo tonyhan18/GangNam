@@ -53,7 +53,7 @@ int			ft_return_all(char **in_buffer, char **line, int size)
 	if (size < 0)
 		return (-1);
 	if (*in_buffer && (idx = ft_find_newline(*in_buffer) >= 0))
-		return (ft_split_lines(&in_buffer[idx], line, idx));
+		return (ft_split_lines(in_buffer, line, idx));
 	else if (*in_buffer)
 	{
 		*line = *in_buffer;

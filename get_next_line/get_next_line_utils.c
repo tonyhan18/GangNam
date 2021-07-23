@@ -15,7 +15,7 @@
 
 size_t		ft_strlen(const char *s)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (*(s++))
@@ -68,23 +68,17 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 }
 
 
-char		*ft_strdup(char *s1)
+char	*ft_strdup(const char *str)
 {
-	char	*result;
-	int		i;
+	char	*new_mem;
+	int		str_len;
 
-	i = ft_strlen(s1);
-	result = (char *)malloc(sizeof(char) * (i + 1));
-	if (!result)
-		return (0);
-	i = 0;
-	while (s1[i])
-	{
-		result[i] = s1[i];
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	str_len = ft_strlen(str);
+	new_mem = (char *)malloc(str_len + 1);
+	if (!new_mem)
+		return (NULL);
+	ft_strlcpy(new_mem, str, str_len + 1);
+	return (new_mem);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
