@@ -57,7 +57,7 @@ int			ft_return_all(char **in_buffer, char **line, int size)
 	else if (*in_buffer)
 	{
 		*line = *in_buffer;
-		in_buffer = 0;
+		*in_buffer = 0;
 		return (0);
 	}
 	else
