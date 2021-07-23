@@ -68,17 +68,23 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 }
 
 
-char	*ft_strdup(const char *str)
+char		*ft_strdup(char *s1)
 {
-	char	*new_mem;
-	int		str_len;
+	char	*result;
+	int		i;
 
-	str_len = ft_strlen(str);
-	new_mem = (char *)malloc(str_len + 1);
-	if (!new_mem)
-		return (NULL);
-	ft_strlcpy(new_mem, str, str_len + 1);
-	return (new_mem);
+	i = ft_strlen(s1);
+	result = (char *)malloc(sizeof(char) * (i + 1));
+	if (!result)
+		return (0);
+	i = 0;
+	while (s1[i])
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
