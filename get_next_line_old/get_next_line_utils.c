@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chahan <hgdst14@naver.com>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 20:47:12 by chahan            #+#    #+#             */
-/*   Updated: 2021/08/09 20:47:16 by chahan           ###   ########.fr       */
+/*   Created: 2021/07/23 19:52:22 by chahan            #+#    #+#             */
+/*   Updated: 2021/07/23 19:52:24 by chahan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "get_next_line.h"
 
-int	ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
 	int i;
 
@@ -66,6 +67,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	return (src_len);
 }
 
+
 char	*ft_strdup(const char *str)
 {
 	char	*new_mem;
@@ -79,7 +81,6 @@ char	*ft_strdup(const char *str)
 	return (new_mem);
 }
 
-
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new_mem;
@@ -92,10 +93,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (s1 == 0 ? ft_strdup(s2) : ft_strdup(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	new_mem = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
-	if (!new_mem)
+	if (!(new_mem = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1))))
 		return (NULL);
 	ft_strlcpy(new_mem, s1, s1_len + 1);
+	free(s1);
 	ft_strlcat(new_mem, s2, s1_len + s2_len + 1);
 	return (new_mem);
 }
