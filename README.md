@@ -9,3 +9,11 @@
 
 | 소프트웨어 및 서비스 | 제공 항목 |
 | --- | --- |
+<br><br>
+
+# 프로젝트 디렉토리 위치<br>
+
+| 프로젝트 명 | 주소 |
+| --- | --- |
+| libft | https://github.com/tonyhan18/libft_2021 |
+| get_next_line | https://github.com/tonyhan18/get_next_line_2021 |
