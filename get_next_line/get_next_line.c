@@ -13,22 +13,35 @@
 #include <stdio.h>
 #include "get_next_line.h"
 
+int		strlen2(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != 0)
+		i++;
+	return (i);
+}
+
 char	*trim(char **str)
 {
 	int		i;
 	char	*ret;
 	char	*tmp;
+	int		len;
 
-	if (!(*str) || !(**str))
+	if ((*str)[0] == '\0')
 		return (NULL);
+	len = strlen2(*str);
 	i = 0;
-	while ((*str)[i] != '\n' && (*str)[i])
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	while (i < len)
+	{
+		ret[i] = (*str)[i];
 		i++;
-	ret = (char *)malloc(sizeof(char) * (i+1));
-	if (!ret)
-		return (NULL);
-	ft_strlcpy(ret, (*str), i+1);
-	tmp = ft_strdup(&(*str)[i+1]);
+	}
+	ret[i] = 0;
+	tmp = ft_strdup(&(*str)[i + 1]);
 	free(*str);
 	*str = tmp;
 	return (ret);
@@ -39,41 +52,37 @@ char	*get_next_line(int fd)
 	static char	*saved_str;
 	char				*buf;
 	char				*tmp;
+	int					rdb;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE);
+	if (!saved_str)
+	{
+		saved_str = (char *)malloc(1);
+		saved_str[0] = 0;
+	}
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	while (read(fd, buf, BUFFER_SIZE) > 0)
+	while ((rdb = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		if (!saved_str)
-		{
-			saved_str = (char *)malloc(BUFFER_SIZE + 1);
-			if (!saved_str)
-			{
-				//free(saved_str);
-				free(buf);
-				return (NULL);
-			}
-		}
+		buf[rdb] = 0;
 		tmp = ft_strjoin(saved_str, buf);
 		free(saved_str);
 		saved_str = tmp;
 	}
 	free(buf);
-	return trim(&saved_str);
+	return (trim(&saved_str));
 }
 
-// int main()
-// {
-// 	int fd = open("file", O_RDWR);
-// 	int i = 0;
-// 	while (i < 4)
-// 	{
-// 		printf("%s", get_next_line(fd));
-// 		// get_next_line(fd);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+int main()
+{
+	int fd = open("file", O_RDWR);
+	int i = 0;
+	char *str;
+	while ((str = get_next_line(fd)))
+	{
+		printf("%s\n", str);
+	}
+	return (0);
+}
